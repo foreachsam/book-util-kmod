@@ -17,7 +17,7 @@
         },
         {
             "location": "/content/reference/manual/",
-            "text": "manual\n\n\n\u95b1\u8b80\u6587\u4ef6\n\n\n\n\n$ man 5 \ndepmod.d\n\n\n$ man 5 \nmodprobe.d\n\n\n$ man 5 \nmodules\n\n\n$ man 5 \nmodules.dep\n\n\n$ man 5 \nmodules.dep.bin\n\n\n$ man 8 \ndepmod\n\n\n$ man 8 \ninsmod\n\n\n$ man 8 \nkmod\n\n\n$ man 8 \nlsmod\n\n\n$ man 8 \nmodinfo\n\n\n$ man 8 \nmodprobe\n\n\n$ man 8 \nrmmod\n\n)",
+            "text": "manual\n\n\n\u95b1\u8b80\u6587\u4ef6\n\n\n\n\n$ man 5 \ndepmod.d\n\n\n$ man 5 \nmodprobe.d\n\n\n$ man 5 \nmodules\n\n\n$ man 5 \nmodules.dep\n\n\n$ man 5 \nmodules.dep.bin\n\n\n$ man 8 \ndepmod\n\n\n$ man 8 \ninsmod\n\n\n$ man 8 \nkmod\n\n\n$ man 8 \nlsmod\n\n\n$ man 8 \nmodinfo\n\n\n$ man 8 \nmodprobe\n\n\n$ man 8 \nrmmod",
             "title": "manual"
         },
         {
@@ -27,7 +27,7 @@
         },
         {
             "location": "/content/reference/manual/#_1",
-            "text": "$ man 5  depmod.d  $ man 5  modprobe.d  $ man 5  modules  $ man 5  modules.dep  $ man 5  modules.dep.bin  $ man 8  depmod  $ man 8  insmod  $ man 8  kmod  $ man 8  lsmod  $ man 8  modinfo  $ man 8  modprobe  $ man 8  rmmod \n)",
+            "text": "$ man 5  depmod.d  $ man 5  modprobe.d  $ man 5  modules  $ man 5  modules.dep  $ man 5  modules.dep.bin  $ man 8  depmod  $ man 8  insmod  $ man 8  kmod  $ man 8  lsmod  $ man 8  modinfo  $ man 8  modprobe  $ man 8  rmmod",
             "title": "\u95b1\u8b80\u6587\u4ef6"
         },
         {
