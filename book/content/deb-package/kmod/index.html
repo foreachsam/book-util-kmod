@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+
+<title>kmod - kmod 使用筆記</title>
+
+
+<link rel="canonical" href="https://foreachsam.github.io/book-util-kmod/book/content/deb-package/kmod/">
+
+
+<meta name="author" content="foreachsam">
+
+
+<meta property="og:url" content="https://foreachsam.github.io/book-util-kmod/book/content/deb-package/kmod/">
+<meta property="og:title" content="kmod - kmod 使用筆記">
+
+<meta name="apple-mobile-web-app-title" content="kmod - kmod 使用筆記">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">  
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../assets/images/favicon.ico">
+<link rel="icon" type="image/x-icon" href="../../../../../../assets/images/favicon.ico">
+<style>
+	@font-face {
+		font-family: 'Icon';
+		src: url('../../../assets/fonts/icon.eot?52m981');
+		src: url('../../../assets/fonts/icon.eot?#iefix52m981') format('embedded-opentype'),
+		url('../../../assets/fonts/icon.woff?52m981') format('woff'),
+		url('../../../assets/fonts/icon.ttf?52m981') format('truetype'),
+		url('../../../assets/fonts/icon.svg?52m981#icon') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+</style>
+<link rel="stylesheet" href="../../../assets/stylesheets/application-0dac3e5884.css"> 
+<link rel="stylesheet" href="../../../assets/stylesheets/palettes-05ab2406df.css">     
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono">
+<style>
+	body,
+	input {
+		font-family: 'Roboto',
+		Helvetica,
+		Arial,
+		sans-serif;
+	}
+
+	pre,
+	code {
+		font-family: 'Roboto Mono',
+		'Courier New',
+		'Courier',
+		monospace;
+	}
+</style>
+ 
+<script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+
+
+</head>
+
+
+  
+
+<body class="palette-primary-red palette-accent-light-red">
+	
+	<div class="backdrop">
+		<div class="backdrop-paper"></div>
+	</div>
+	<input class="toggle" type="checkbox" id="toggle-drawer">
+	<input class="toggle" type="checkbox" id="toggle-search">
+	<label class="toggle-button overlay" for="toggle-drawer"></label>
+	<header class="header">
+		<nav aria-label="Header">
+	<div class="bar default">
+		<div class="button button-menu" role="button" aria-label="Menu">
+			<label class="toggle-button icon icon-menu" for="toggle-drawer">
+				<span></span>
+			</label>
+		</div>
+		<div class="stretch">
+			<div class="title">
+				
+				<span class="path">
+            
+              
+                deb package <i class="icon icon-link"></i>
+              
+            
+          </span>  kmod
+			</div>
+		</div>
+		  
+		<div class="button button-github" role="button" aria-label="GitHub">
+			<a href="https://github.com/foreachsam/book-util-kmod" title="@foreachsam/book-util-kmod on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+		</div>
+		
+		<div class="button button-search" role="button" aria-label="Search">
+			<label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+		</div>
+	</div>
+	<div class="bar search">
+		<div class="button button-close" role="button" aria-label="Close">
+			<label class="toggle-button icon icon-back" for="toggle-search"></label>
+		</div>
+		<div class="stretch">
+			<div class="field">
+				<input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+			</div>
+		</div>
+		<div class="button button-reset" role="button" aria-label="Search">
+			<button class="toggle-button icon icon-close" id="reset-search"></button>
+		</div>
+	</div>
+</nav>
+	</header>
+	<main class="main">
+		
+		<div class="drawer">
+			<nav aria-label="Navigation">
+
+	<a href="https://foreachsam.github.io/book-util-kmod/book" class="project" title="kmod 使用筆記">
+		<div class="banner">
+
+			<div class="name">
+				<strong>kmod 使用筆記<span class="version"></span></strong>
+
+			</div>
+		</div>
+	</a>
+	<div class="scrollable">
+		<div class="wrapper">
+
+			<div class="toc">
+				<ul>
+
+	
+<li>
+	<div itemscope itemtype="http://schema.org/Article">
+		<a class="" title="首頁" href="../../.." itemprop="url">
+			首頁
+    	</a>
+	</div>
+	
+</li>
+
+
+	
+<li>
+	<span class="section">參考文件</span>
+	<ul>
+		
+
+			
+<li>
+	<div itemscope itemtype="http://schema.org/Article">
+		<a class="" title="manual" href="../../reference/manual/" itemprop="url">
+			manual
+    	</a>
+	</div>
+	
+</li>
+
+
+		
+	</ul>
+</li>
+
+
+	
+<li>
+	<span class="section">deb package</span>
+	<ul>
+		
+
+			
+<li>
+	<div itemscope itemtype="http://schema.org/Article">
+		<a class="" title="index" href="../" itemprop="url">
+			index
+    	</a>
+	</div>
+	
+</li>
+
+
+		
+
+			
+<li>
+	<div itemscope itemtype="http://schema.org/Article">
+		<a class="current" title="kmod" href="./" itemprop="url">
+			kmod
+    	</a>
+	</div>
+	    
+	<ul>
+		
+		<li class="anchor" >
+			<div itemscope itemtype="http://schema.org/Article">
+				<a title="下載套件" href="#_1" >
+                	下載套件
+				</a>
+			</div>
+		</li>
+		
+		<li class="anchor" >
+			<div itemscope itemtype="http://schema.org/Article">
+				<a title="解開套件" href="#_2" >
+                	解開套件
+				</a>
+			</div>
+		</li>
+		
+		<li class="anchor" >
+			<div itemscope itemtype="http://schema.org/Article">
+				<a title="觀看資料夾結構" href="#_3" >
+                	觀看資料夾結構
+				</a>
+			</div>
+		</li>
+		
+		<li class="anchor" >
+			<div itemscope itemtype="http://schema.org/Article">
+				<a title="manpage" href="#manpage" >
+                	manpage
+				</a>
+			</div>
+		</li>
+		
+		<li class="anchor" >
+			<div itemscope itemtype="http://schema.org/Article">
+				<a title="下載 Source Package" href="#source-package" >
+                	下載 Source Package
+				</a>
+			</div>
+		</li>
+		
+		<li class="anchor" >
+			<div itemscope itemtype="http://schema.org/Article">
+				<a title="套件資訊" href="#_4" >
+                	套件資訊
+				</a>
+			</div>
+		</li>
+		
+		<li class="anchor" >
+			<div itemscope itemtype="http://schema.org/Article">
+				<a title="原始碼套件資訊" href="#_5" >
+                	原始碼套件資訊
+				</a>
+			</div>
+		</li>
+		
+	</ul>
+	 
+</li>
+
+
+		
+	</ul>
+</li>
+
+
+	
+<li>
+	<span class="section">command</span>
+	<ul>
+		
+
+			
+<li>
+	<div itemscope itemtype="http://schema.org/Article">
+		<a class="" title="kmod" href="../../command/kmod/" itemprop="url">
+			kmod
+    	</a>
+	</div>
+	
+</li>
+
+
+		
+	</ul>
+</li>
+
+
+				</ul>
+
+				<hr>
+				<span class="section">The author</span>
+				<ul>
+	
+					<li>
+						<a href="https://foreachsam.github.io/" target="_blank" title="foreachsam">
+                  			foreachsam
+            			</a>
+					</li>
+	
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</nav>
+		</div>
+		<article class="article">
+			<div class="wrapper">
+				 <h1 id="kmod">kmod 套件探索</h1>
+<h2 id="_1">下載套件</h2>
+<p>下載「<a href="http://packages.ubuntu.com/xenial/kmod">kmod</a>」這個套件。</p>
+<pre class="code"><code class="language-sh">$ apt download kmod</code></pre>
+
+
+<h2 id="_2">解開套件</h2>
+<p>解開「kmod_22-1ubuntu4_amd64.deb」</p>
+<pre class="code"><code class="language-sh">$ dpkg -x kmod_22-1ubuntu4_amd64.deb kmod</code></pre>
+
+
+<h2 id="_3">觀看資料夾結構</h2>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ tree kmod</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>kmod
+├── bin
+│   ├── kmod
+│   └── lsmod -&gt; kmod
+├── etc
+│   ├── depmod.d
+│   │   └── ubuntu.conf
+│   ├── init
+│   │   └── kmod.conf
+│   ├── init.d
+│   │   └── kmod
+│   └── modprobe.d
+│       ├── blacklist-ath_pci.conf
+│       ├── blacklist.conf
+│       ├── blacklist-firewire.conf
+│       ├── blacklist-framebuffer.conf
+│       ├── blacklist-rare-network.conf
+│       ├── blacklist-watchdog.conf
+│       ├── iwlwifi.conf
+│       └── mlx4.conf
+├── lib
+│   └── modprobe.d
+│       └── aliases.conf
+├── sbin
+│   ├── depmod -&gt; /bin/kmod
+│   ├── insmod -&gt; /bin/kmod
+│   ├── lsmod -&gt; /bin/kmod
+│   ├── modinfo -&gt; /bin/kmod
+│   ├── modprobe -&gt; /bin/kmod
+│   └── rmmod -&gt; /bin/kmod
+└── usr
+    └── share
+        ├── bash-completion
+        │   └── completions
+        │       └── kmod
+        ├── doc
+        │   ├── kmod -&gt; libkmod2
+        │   └── libkmod2
+        │       ├── README
+        │       └── TODO
+        ├── initramfs-tools
+        │   └── hooks
+        │       └── kmod
+        └── man
+            ├── fr
+            │   └── man5
+            │       └── modules.5.gz
+            ├── man5
+            │   ├── depmod.d.5.gz
+            │   ├── modprobe.d.5.gz
+            │   ├── modules.5.gz
+            │   ├── modules.dep.5.gz
+            │   └── modules.dep.bin.5.gz -&gt; modules.dep.5.gz
+            └── man8
+                ├── depmod.8.gz
+                ├── insmod.8.gz
+                ├── kmod.8.gz
+                ├── lsmod.8.gz
+                ├── modinfo.8.gz
+                ├── modprobe.8.gz
+                └── rmmod.8.gz
+
+23 directories, 37 files</code></pre>
+
+
+<p>若有安裝這個套件的話，可執行</p>
+<pre class="code"><code class="language-sh">$ dpkg -L kmod</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>/.
+/sbin
+/etc
+/etc/init.d
+/etc/init.d/kmod
+/etc/modprobe.d
+/etc/modprobe.d/blacklist-ath_pci.conf
+/etc/modprobe.d/mlx4.conf
+/etc/modprobe.d/blacklist.conf
+/etc/modprobe.d/iwlwifi.conf
+/etc/modprobe.d/blacklist-rare-network.conf
+/etc/modprobe.d/blacklist-framebuffer.conf
+/etc/modprobe.d/blacklist-watchdog.conf
+/etc/modprobe.d/blacklist-firewire.conf
+/etc/init
+/etc/init/kmod.conf
+/etc/depmod.d
+/etc/depmod.d/ubuntu.conf
+/bin
+/bin/kmod
+/lib
+/lib/modprobe.d
+/lib/modprobe.d/aliases.conf
+/usr
+/usr/share
+/usr/share/initramfs-tools
+/usr/share/initramfs-tools/hooks
+/usr/share/initramfs-tools/hooks/kmod
+/usr/share/bash-completion
+/usr/share/bash-completion/completions
+/usr/share/bash-completion/completions/kmod
+/usr/share/doc
+/usr/share/doc/libkmod2
+/usr/share/doc/libkmod2/TODO
+/usr/share/doc/libkmod2/README
+/usr/share/man
+/usr/share/man/fr
+/usr/share/man/fr/man5
+/usr/share/man/fr/man5/modules.5.gz
+/usr/share/man/man8
+/usr/share/man/man8/depmod.8.gz
+/usr/share/man/man8/kmod.8.gz
+/usr/share/man/man8/modinfo.8.gz
+/usr/share/man/man8/insmod.8.gz
+/usr/share/man/man8/lsmod.8.gz
+/usr/share/man/man8/rmmod.8.gz
+/usr/share/man/man8/modprobe.8.gz
+/usr/share/man/man5
+/usr/share/man/man5/modprobe.d.5.gz
+/usr/share/man/man5/modules.dep.5.gz
+/usr/share/man/man5/modules.5.gz
+/usr/share/man/man5/depmod.d.5.gz
+/sbin/rmmod
+/sbin/depmod
+/sbin/modprobe
+/sbin/modinfo
+/sbin/insmod
+/sbin/lsmod
+/bin/lsmod
+/usr/share/doc/kmod
+/usr/share/man/man5/modules.dep.bin.5.gz</code></pre>
+
+
+<h2 id="manpage">manpage</h2>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ dpkg -L kmod | grep '/man/man.*/' | sort</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>/usr/share/man/man5/depmod.d.5.gz
+/usr/share/man/man5/modprobe.d.5.gz
+/usr/share/man/man5/modules.5.gz
+/usr/share/man/man5/modules.dep.5.gz
+/usr/share/man/man5/modules.dep.bin.5.gz
+/usr/share/man/man8/depmod.8.gz
+/usr/share/man/man8/insmod.8.gz
+/usr/share/man/man8/kmod.8.gz
+/usr/share/man/man8/lsmod.8.gz
+/usr/share/man/man8/modinfo.8.gz
+/usr/share/man/man8/modprobe.8.gz</code></pre>
+
+
+<ul>
+<li>$ man 5 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man5/depmod.d.5.html">depmod.d</a></li>
+<li>$ man 5 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man5/modprobe.d.5.html">modprobe.d</a></li>
+<li>$ man 5 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man5/modules.5.html">modules</a></li>
+<li>$ man 5 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man5/modules.dep.5.html">modules.dep</a></li>
+<li>$ man 5 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man5/modules.dep.bin.5.html">modules.dep.bin</a></li>
+<li>$ man 8 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/depmod.8.html">depmod</a></li>
+<li>$ man 8 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/insmod.8.html">insmod</a></li>
+<li>$ man 8 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/kmod.8.html">kmod</a></li>
+<li>$ man 8 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/lsmod.8.html">lsmod</a></li>
+<li>$ man 8 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/modinfo.8.html">modinfo</a></li>
+<li>$ man 8 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/modprobe.8.html">modprobe</a></li>
+<li>$ man 8 <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/rmmod.8.html">rmmod</a></li>
+</ul>
+<h2 id="source-package">下載 Source Package</h2>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ apt source kmod</code></pre>
+
+
+<p>會下載「<a href="http://packages.ubuntu.com/source/xenial/kmod">kmod</a>」這個「Source Package」</p>
+<h2 id="_4">套件資訊</h2>
+<p>網址: <a href="http://packages.ubuntu.com/xenial/kmod">http://packages.ubuntu.com/xenial/kmod</a></p>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ apt show kmod</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>Package: kmod
+Version: 22-1ubuntu4
+Priority: important
+Section: admin
+Origin: Ubuntu
+Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
+Original-Maintainer: Marco d'Itri &lt;md@linux.it&gt;
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 247 kB
+Depends: libc6 (&gt;= 2.17), libkmod2 (= 22-1ubuntu4), lsb-base (&gt;= 4.1+Debian11ubuntu7)
+Breaks: oss-compat (= 4)
+Task: minimal, ubuntu-sdk
+Supported: 5y
+Download-Size: 89.1 kB
+APT-Manual-Installed: yes
+APT-Sources: http://tw.archive.ubuntu.com/ubuntu xenial/main amd64 Packages
+Description: tools for managing Linux kernel modules
+ This package contains a set of programs for loading, inserting, and
+ removing kernel modules for Linux.
+ It replaces module-init-tools.</code></pre>
+
+
+<h2 id="_5">原始碼套件資訊</h2>
+<p>網址: <a href="http://packages.ubuntu.com/source/xenial/kmod">http://packages.ubuntu.com/source/xenial/kmod</a></p>
+<p>執行</p>
+<pre class="code"><code class="language-sh">$ apt showsrc kmod</code></pre>
+
+
+<p>顯示</p>
+<pre class="code"><code>Package: kmod
+Binary: kmod, libkmod2, libkmod-dev, libkmod2-udeb, module-init-tools
+Version: 22-1ubuntu4
+Priority: important
+Section: admin
+Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
+Original-Maintainer: Marco d'Itri &lt;md@linux.it&gt;
+Build-Depends: debhelper (&gt;&gt; 9), xsltproc, autoconf, automake, libtool, gtk-doc-tools
+Architecture: linux-any all
+Standards-Version: 3.9.6.1
+Format: 3.0 (quilt)
+Directory: pool/main/k/kmod
+Files:
+ 2a9ed47e99f5b1ff69679e73afc2020c 2143 kmod_22-1ubuntu4.dsc
+ 0e674dbadc71155dd8aad62f10cf55c8 160576 kmod_22.orig.tar.xz
+ e60e60de81af8d09527d591db76b14c1 13644 kmod_22-1ubuntu4.debian.tar.xz
+Vcs-Browser: http://anonscm.debian.org/cgit/users/md/kmod.git
+Vcs-Git: git://anonscm.debian.org/users/md/kmod.git
+Package-List:
+ kmod deb admin important arch=linux-any
+ libkmod-dev deb libdevel optional arch=linux-any
+ libkmod2 deb libs important arch=linux-any
+ libkmod2-udeb udeb debian-installer important arch=linux-any
+ module-init-tools deb oldlibs optional arch=all
+Checksums-Sha1:
+ dd755199bf0f17284372c0575b7433204c025d4b 2143 kmod_22-1ubuntu4.dsc
+ 29b9ff376c1d2c3df07217446a83c705b3e26c43 160576 kmod_22.orig.tar.xz
+ 5e4a432b0cec649cfe6f002ee26884245d2f510f 13644 kmod_22-1ubuntu4.debian.tar.xz
+Checksums-Sha256:
+ c11ad8116cf2d9f868a490dd2fd3e52518e9c07026864e204a90ffa2c97ccb79 2143 kmod_22-1ubuntu4.dsc
+ 158cbbca15c570eb2f4ce29a64cae785cb377a200cf62d6f70ca52e3d33325f3 160576 kmod_22.orig.tar.xz
+ 6b2a68f8333222f3b8cfb80d81d5fc936d90365e346c5092086ea148ec1d4ec0 13644 kmod_22-1ubuntu4.debian.tar.xz</code></pre>
+				<aside class="copyright" role="note">
+					 Copyright (c) foreachsam &ndash;  Documentation built with
+					<a href="http://www.mkdocs.org" target="_blank">MkDocs</a> using the
+					<a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a> theme.
+				</aside>
+				
+				<footer class="footer">
+					
+<nav class="pagination" aria-label="Footer">
+	<div class="previous">
+		
+		<a href="../" title="index">
+			<span class="direction">
+            上一頁
+          </span>
+			<div class="page">
+				<div class="button button-previous" role="button" aria-label="Previous">
+					<i class="icon icon-back"></i>
+				</div>
+				<div class="stretch">
+					<div class="title">
+						index
+					</div>
+				</div>
+			</div>
+		</a>
+		
+	</div>
+	<div class="next">
+		
+		<a href="../../command/kmod/" title="kmod">
+			<span class="direction">
+            下一頁
+          </span>
+			<div class="page">
+				<div class="stretch">
+					<div class="title">
+						kmod
+					</div>
+				</div>
+				<div class="button button-next" role="button" aria-label="Next">
+					<i class="icon icon-forward"></i>
+				</div>
+			</div>
+		</a>
+		
+	</div>
+</nav>
+
+				</footer>
+				
+			</div>
+		</article>
+		<div class="results" role="status" aria-live="polite">
+			<div class="scrollable">
+				<div class="wrapper">
+					<div class="meta"></div>
+					<div class="list"></div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script>
+		var base_url = '../../..';
+		var repo_id = '';
+	</script>
+	<script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+	
+
+
+<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document,
+		'script', '//www.google-analytics.com/analytics.js', 'ga');
+	/* General initialization */
+	ga('create', 'UA-56999876-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+	/* Track outbound links */
+	var buttons = document.querySelectorAll('a');
+	Array.prototype.map.call(buttons, function(item) {
+		if (item.host != document.location.host) {
+			item.addEventListener('click', function() {
+				var action = item.getAttribute('data-action') || 'follow';
+				ga('send', 'event', 'outbound', action, item.href);
+			});
+		}
+	});
+	/* Register handler to log search on blur */
+	var query = document.querySelector('.query');
+	query.addEventListener('blur', function() {
+		if (this.value) {
+			var path = document.location.pathname;
+			ga('send', 'pageview', path + '?q=' + this.value);
+		}
+	});
+</script>
+
+
+</body>
+
+</html>
